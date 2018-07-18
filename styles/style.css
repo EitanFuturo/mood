@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+  display: block;
+}
+body {
+  min-height: 200vh;
+  font-family: 'Yatra One', cursive;
+}
+.pantalla-uno {
+  background-color: #7fffd4;
+  min-height: 100vh;
+  min-width: 100%;
+}
+.pantalla-dos {
+  background-color: #008000;
+  min-height: 100vh;
+  min-width: 100%;
+}
+.wrapper {
+  position: relative;
+}
+h1 {
+  position: absolute;
+  margin: 0;
+  font-size: 5rem;
+  color: #808080;
+}
+h2 {
+  position: absolute;
+  font-size: 5rem;
+  color: #000;
+  left: -5px;
+  top: 5px;
+  opacity: 0.3;
+}
