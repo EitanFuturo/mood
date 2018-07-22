@@ -1,3 +1,4 @@
+//Texto animado.
 var words = ['Eiti', 'Wer', 'Caro', 'Monue'],
     wordWrapper = document.getElementById('word'),
     wordWrapperContent = wordWrapper.innerHTML,
@@ -30,3 +31,9 @@ setInterval(function(){
   }
 
 }, 250);
+
+//Header extensible.
+$('.brain').click(function () {
+  $('.icon').toggleClass('active');
+  $('header').toggleClass('obscure');
+})
