@@ -12,9 +12,84 @@ body {
   font-family: 'Yatra One', cursive;
 }
 .pantalla-uno {
-  background-color: #7fffd4;
+  display: grid;
+  grid-template-rows: 1fr 1fr 7fr 1fr;
+  grid-template-columns: 1fr 8fr 1fr;
+  grid-gap: 0.3rem;
+  background: linear-gradient(216deg, #6f5e76, #320458, #5d5e60, #36413e);
+  background-size: 800% 800%;
+  -webkit-animation: AnimationName 44s ease infinite;
+  -moz-animation: AnimationName 44s ease infinite;
+  animation: AnimationName 44s ease infinite;
   min-height: 100vh;
   min-width: 100%;
+  color: #f28482;
+}
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 86% 0%;
+  }
+  50% {
+    background-position: 15% 100%;
+  }
+  100% {
+    background-position: 86% 0%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 86% 0%;
+  }
+  50% {
+    background-position: 15% 100%;
+  }
+  100% {
+    background-position: 86% 0%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 86% 0%;
+  }
+  50% {
+    background-position: 15% 100%;
+  }
+  100% {
+    background-position: 86% 0%;
+  }
+}
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 86% 0%;
+  }
+  50% {
+    background-position: 15% 100%;
+  }
+  100% {
+    background-position: 86% 0%;
+  }
+}
+@-o-keyframes AnimationName {
+  0% {
+    background-position: 86% 0%;
+  }
+  50% {
+    background-position: 15% 100%;
+  }
+  100% {
+    background-position: 86% 0%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 86% 0%;
+  }
+  50% {
+    background-position: 15% 100%;
+  }
+  100% {
+    background-position: 86% 0%;
+  }
 }
 .pantalla-dos {
   background-color: #008000;
@@ -23,18 +98,75 @@ body {
 }
 .wrapper {
   position: relative;
+  grid-row-start: 2;
+  grid-column: 2/3;
 }
 h1 {
   position: absolute;
   margin: 0;
-  font-size: 5rem;
-  color: #808080;
+  z-index: 1;
 }
 h2 {
   position: absolute;
-  font-size: 5rem;
   color: #000;
   left: -5px;
   top: 5px;
   opacity: 0.3;
+  z-index: 0;
+}
+.titulo {
+  font-size: 5rem;
+}
+header {
+  justify-self: center;
+  align-self: center;
+  margin-top: 2rem;
+  grid-row: 1/2;
+  grid-column-start: 2;
+}
+.brain img {
+  animation: rotate 2s linear infinite;
+  height: 32px;
+  width: 32px;
+}
+@-moz-keyframes rotate {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(-360deg);
+  }
+}
+@-webkit-keyframes rotate {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(-360deg);
+  }
+}
+@-o-keyframes rotate {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(-360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(-360deg);
+  }
+}
+.brain img:hover {
+  animation-play-state: paused;
+}
+#word {
+  font-size: 3rem;
+  padding-top: 2rem;
+  grid-row-start: 3;
+  grid-column: 2/3;
 }
