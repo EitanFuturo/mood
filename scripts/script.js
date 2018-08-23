@@ -1,4 +1,4 @@
-var selectGenres = [genreCold, genreChill, genreTemplate, genreHot, genreHell], genreMap;
+var selectGenres = [genreCold, genreChill, genreTemplate, genreHot, genreHell];
 
 function success(pos) {
   let crd = pos.coords;
@@ -27,14 +27,10 @@ function success(pos) {
         genres.forEach(element => {
           genre = element.name;
           genreId = element.id;
-          genreMap = {
-            genre: genre,
-            id: genreId
-          }
-          console.log(genreMap);
           option = document.createElement('option');
           option.text = genre;
           option.value = genre;
+          option.id = genreId;
           selectGenres[i].appendChild(option);           
         });
       }
@@ -59,7 +55,7 @@ function error(err) {
 }
 
 function findSelection () {
-  console.log(this)
+  console.log('hola')
 }
 
 navigator.geolocation.getCurrentPosition(success, error);
