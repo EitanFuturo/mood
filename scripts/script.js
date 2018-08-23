@@ -14,8 +14,8 @@ function success(pos) {
       console.log(temperature);
       let summary = data.currently.summary; //LOS TIPOS DE SUMMARY SON: clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night
       console.log(summary);
-      $('.hero h1').html(`La temperatura es de ${temperature} grados`);
-      $('.hero h2').html(`El cielo está ${summary}`);
+      $('.hero h1').html(`La temperatura es de ${temperature} º C.`);
+      $('.hero h2').html(`El cielo está ${summary}.`);
   })
     .catch(function (error) {
       console.error(error)
