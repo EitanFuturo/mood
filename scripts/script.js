@@ -1,39 +1,65 @@
-//Texto animado.
-var words = ['Eiti', 'Wer', 'Caro', 'Monue'],
-    wordWrapper = document.getElementById('word'),
-    wordWrapperContent = wordWrapper.innerHTML,
-    addingWord = false,
-    counter = 1;
+var selectGenres = [genreCold, genreChill, genreTemplate, genreHot, genreHell], genreMap;
 
-setInterval(function(){
+function success(pos) {
+  let crd = pos.coords;
 
-  if(wordWrapperContent.length > 0 && !addingWord ) {
-    wordWrapper.innerHTML = wordWrapperContent.slice(0, -1);
-    wordWrapperContent = wordWrapper.innerHTML;
-  } else {
-    addingWord = true;
-  }
-
-  if( addingWord ){
-    if( wordWrapperContent.length < words[counter].length  ) {
-      wordWrapper.innerHTML = words[counter].slice(0, wordWrapperContent.length + 1);
-      wordWrapperContent = wordWrapper.innerHTML;
-    } else {
-      if( counter < words.length) {
-        counter ++
+  console.log('Your current position is:');
+  console.log(`Latitude : ${crd.latitude}`);
+  console.log(`Longitude: ${crd.longitude}`);
+  console.log(`More or less ${crd.accuracy} meters.`);
+  
+  axios.get(`https://api.darksky.net/forecast/1c84b3466b079157584b54e4079af66a/${crd.latitude},${crd.longitude}?lang=es&units=auto&exclude=minutely,hourly,daily,alerts,flags`)
+    .then(function (response) {
+      let data = response.data, temperature = data.currently.temperature;
+      console.log(temperature);
+      let summary = data.currently.summary; //LOS TIPOS DE SUMMARY SON: clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night
+      console.log(summary);
+      $('.hero h1').html(`La temperatura es de ${temperature} grados`);
+      $('.hero h2').html(`El cielo está ${summary}`);
+  })
+    .catch(function (error) {
+      console.error(error)
+  });
+  axios.get('https://api.themoviedb.org/3/genre/movie/list?api_key=5a7f34f54c25ea35d2c772a1bf4b5535&language=es')
+    .then(function (response) {
+      let data = response.data, genres = data['genres'], genre, option;
+      for (let i = 0; i < selectGenres.length; i++) {
+        genres.forEach(element => {
+          genre = element.name;
+          genreId = element.id;
+          genreMap = {
+            genre: genre,
+            id: genreId
+          }
+          console.log(genreMap);
+          option = document.createElement('option');
+          option.text = genre;
+          option.value = genre;
+          selectGenres[i].appendChild(option);           
+        });
       }
-      addingWord = false;
-    }
-  }
+  })
+    .catch(function (error) {
+      console.error(error)
+  });
 
-  if( counter == words.length) {
-    counter = 0;
-  }
+  //PIDO SÓLO EL CLIMA EN ESPAÑOL
+  // axios.get(`https://api.darksky.net/forecast/1c84b3466b079157584b54e4079af66a/${crd.latitude},${crd.longitude}?lang=es&exclude=minutely,hourly,daily,alerts,flags`)
+  //   .then(function (response) {
+  //     let spanishSummary = response.data.currently.summary;
+  //     console.log(spanishSummary);
+  //   })
+  //   .catch(function (error) {
+  //     console.error(error)
+  // });
+}
 
-}, 250);
+function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+}
 
-//Header extensible.
-$('.brain').click(function () {
-  $('.icon').toggleClass('active');
-  $('header').toggleClass('obscure');
-})
+function findSelection () {
+  console.log(this)
+}
+
+navigator.geolocation.getCurrentPosition(success, error);

@@ -4,36 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yatra+One">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
   <link rel="icon" type="image/png" href="imgs/brain.png">
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/style.css">
-  <title>Mente</title>
+  <title>API</title>
 </head>
 <body>
-  <section class="pantalla-uno">
-    <header>
-      <div class="brain">
-        <img src="imgs/brain.png" alt="cerebro">
+  <div class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title"></h1>
+        <h2 class="subtitle is-large"></h2>
       </div>
-      <div class="icon icon-photos">
-        <i class="material-icons md-24">photo</i>
-      </div>
-      <div class="icon icon-music">
-          <i class="material-icons md-24">library_music</i>        
-      </div>
-    </header>
-    <div class="wrapper">
-      <h1 class="titulo">mente</h1>
-      <h2 class="titulo">mente</h2>
     </div>
-      <span id="word">Eiti</span>          
-  </section>
-  <section class="pantalla-dos">
-    PRUEBA
-  </section>
-
+  </div>
+    <div class="section">
+      <div class="level is-primary flex">
+        <div class="level-item has-text-centered flex">
+          <p class="heading">¡Chuy! (menos de 8 grados).</p><br>
+          <div class="select">
+              <select name="genre" id="genreCold">
+                  <option value="generos" selected>Género</option>
+              </select>
+          </div>
+        </div>
+        <div class="level-item has-text-centered flex">
+          <p class="heading">Chill (8-16 grados).</p><br>
+          <div class="select">
+              <select name="genre" id="genreChill">
+                  <option value="generos" selected>Género</option>            
+              </select>
+          </div>
+        </div>
+        <div class="level-item has-text-centered flex">
+          <p class="heading">Templado (16-24 grados).</p><br>
+          <div class="select">
+              <select name="genre" id="genreTemplate">
+                  <option value="generos" selected>Género</option>            
+              </select>
+          </div>
+        </div>
+        <div class="level-item has-text-centered flex">
+          <p class="heading">Calor (24-32 grados).</p><br>
+          <div class="select">
+            <select name="genre" id="genreHot">
+                <option value="generos" selected>Género</option>          
+            </select>
+          </div>
+        </div>
+        <div class="level-item has-text-centered flex">
+          <p class="heading">Infierno (más de 32 grados).</p><br>      
+          <div class="select">
+              <select name="genre" id="genreHell">
+                  <option value="generos" selected>Género</option>            
+              </select>
+          </div>
+        </div>
+    </div>
+    <div class="section flex container" id="button-container">
+      <a href="#" class="button is-primary felx is-centered" onclick="findSelection()">Buscar</a>
+    </div>
+  </div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script> 
 <script src="scripts/script.js"></script>
 </body>
